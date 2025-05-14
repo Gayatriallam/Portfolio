@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --bg-color: #f4f4f4;
+      --text-color: #1a1a1a;
+      --header-bg: #002b5b;
+      --header-text: #ffffff;
+      --link-color: #e63946;
+      --particle-color: #000000;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #e0e0e0;
+      --header-bg: #1a1a1a;
+      --header-text: #ffffff;
+      --link-color: #ffa500;
+      --particle-color: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      top: 0;
+      left: 0;
+    }
+
+    header {
+      background: url('header-bg.jpeg') no-repeat center center;
+      background-size: cover;
+      color: var(--header-text);
+      padding: 20px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    body.dark header {
+      background: url('header-dark.jpeg') no-repeat center center;
+      background-size: cover;
+    }
+
+
+
+    nav a {
+      color: var(--header-text);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--link-color);
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--link-color);
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    .profile-pic {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 20px;
+      border: 3px solid var(--link-color);
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: auto;
+      animation: fadeIn 1s ease;
+    }
+
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 10px;
+    }
+
+    .project {
+      margin: 20px 0;
+      padding: 15px;
+      background: white;
+      color: black;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      transition: transform 0.3s;
+    }
+
+    .project:hover {
+      transform: scale(1.02);
+    }
+
+    body.dark .project,
+    body.dark .education,
+    body.dark .skills {
+      background: #1e1e1e;
+      color: #fff;
+      border-color: #333;
+    }
+
+    .contact a, .resume-btn a {
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .resume-btn {
+      margin-top: 15px;
+    }
+
+    .resume-btn a {
+      background: var(--link-color);
+      color: white;
+      padding: 10px 15px;
+      border-radius: 5px;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+
+    .resume-btn a:hover {
+      background: #005bb5;
+    }
+
+    footer {
+      background: var(--header-bg);
+      color: var(--header-text);
+      text-align: center;
+      padding: 15px 0;
+    }
+
+    .education, .skills {
+      background: #fff;
+      padding: 15px;
+      margin: 20px 0;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    .contact-info {
+      margin-top: 10px;
+    }
+
+    .contact-info a {
+      display: block;
+      margin: 5px 0;
+      color: var(--link-color);
+      text-decoration: none;
+    }
+
+    .contact-info a:hover {
+      color: #005bb5;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .toggle-btn {
+        top: 10px;
+        right: 10px;
+      }
+
+      section {
+        padding: 30px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Particle background -->
+  <div id="particles-js"></div>
+
+  <header>
+    <img src="profile.jpeg" alt="Your Profile Picture" class="profile-pic">
+    <h1>Gayatri Allam</h1>
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Dark Mode</button>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm Gayatri, a passionate AI Student. I am currently pursuing a B.Tech in Artificial Intelligence and Data Science at Shri Vishnu Engineering College for Women. I have gained hands-on experience through internships and training in Data Science, Machine Learning, and AI. I’ve worked on projects like “Catch The Phish” and “Know Your Weather,” where I utilized tools like Python, Java, and MySQL. With a strong foundation in web development and programming, I am eager to continue applying my skills in real-world projects.</p>
+    <div class="resume-btn">
+      <a href="resume.pdf" download>Download Resume</a>
+    </div>
+  </section>
+
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education">
+      <h3>B.Tech in Artificial Intelligence and Data Science</h3>
+      <p>Shri Vishnu Engineering College for Women, 2023-2026</p>
+      <p>CGPA: 8.86</p>
+    </div>
+    <div class="education">
+      <h3>Diploma in Computer Science and Engineering</h3>
+      <p>Smt. B. Seetha Polytechnic, 2020-2023</p>
+      <p>CGPA: 9.4</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <h3>Programming Languages</h3>
+      <p>Python, Java, JavaScript, SQL</p>
+    </div>
+    <div class="skills">
+      <h3>Tools & Technologies</h3>
+      <p>TensorFlow, Keras, Scikit-learn, Pandas, Matplotlib, MySQL, Git, HTML, CSS, React.js</p>
+    </div>
+    <div class="skills">
+      <h3>Languages</h3>
+      <p>English, Hindi, Telugu, German(Beginner)</p>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project">
+      <h3>Way2Campus</h3>
+      <p>A campus navigation system that helps students and visitors easily find locations on campus. The project uses React.js, HTML, CSS, OpenRouterServices API, and Google Maps to provide an interactive campus map.</p>
+    </div>
+    <div class="project">
+      <h3>CatchThePhish</h3>
+      <p>A tool developed for detecting phishing websites using machine learning. It leverages libraries such as Matplotlib, Pandas, NumPy, and Seaborn for data analysis and visualization to identify fake URLs.</p>
+    </div>
+    <div class="project">
+      <h3>KnowYourWeather</h3>
+      <p>A website developed for displaying weather report using python. It shows features such as Weather condition, Atmospheric pressure, Wind speed, Cloud cover, Sunrise timings.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:gayatriallam02.com">gayatriallam02.com</a></p>
+      <p>Mobile: <a href="tel:+916300434448">+91 6300434448</a></p>
+      <p>GitHub: <a href="https://github.com/Gayatriallam" target="_blank">Gayatriallam</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/gayatri-allam-" target="_blank">gayatri-allam-</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Gayatri Allam. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMode() {
+      document.body.classList.toggle("dark");
+      loadParticles();
+    }
+
+    function loadParticles() {
+      const particleColor = getComputedStyle(document.body).getPropertyValue('--particle-color').trim();
+      particlesJS("particles-js", {
+        "particles": {
+          "number": { "value": 60 },
+          "color": { "value": particleColor },
+          "shape": { "type": "circle" },
+          "opacity": { "value": 0.5 },
+          "size": { "value": 3 },
+          "line_linked": {
+            "enable": true,
+            "distance": 150,
+            "color": particleColor,
+            "opacity": 0.4,
+            "width": 1
+          },
+          "move": { "enable": true, "speed": 2 }
+        },
+        "interactivity": {
+          "detect_on": "canvas",
+          "events": {
+            "onhover": { "enable": true, "mode": "grab" }
+          }
+        },
+        "retina_detect": true
+      });
+    }
+
+    window.addEventListener('DOMContentLoaded', loadParticles);
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+</body>
+</html>
